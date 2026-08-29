@@ -53,13 +53,18 @@ public class Main {
         private static int readValidInteger(Scanner scanner, String prompt) {
         while (true) {
             System.out.print(prompt);
-            if (scanner.hasNextInt()) {
-                int value = scanner.nextInt();
-                scanner.nextLine(); // consume trailing newline
-                return value;
-            } else {
-                System.out.println("Invalid input. Integers only.");
-                scanner.nextLine(); // discard non-integer token
+            String input =  scanner.nextLine().trim();
+            
+            //Handle empty input case
+            if (input.isEmpty()) {
+                System.out.println("Input cannot be empty. Please enter a valid integer.");
+                continue;
+            } 
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                
             }
         }
     }
