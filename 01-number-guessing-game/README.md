@@ -16,6 +16,7 @@ A console-based number guessing game built in Java. The application generates a 
 ## Usage
 
 ### Tools
+
 * Java Development Kit (JDK 17 or higher)
 
 ### Build and Run
