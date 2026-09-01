@@ -88,7 +88,7 @@ public class Matrix {
         // Implementation for transposing a matrix
         System.out.println("Transpose Matrix operation selected.");
         int [][] a = readMatrix(scanner, "A");
-        
+
         int [][] result = transposeMatrix(a);
         System.out.println("Matrix transposed!");
         System.out.println("Result:");
@@ -110,5 +110,98 @@ public class Matrix {
         printMatrix(result);
     }
 
+    public static int[][] addMatrices(int[][] a, int[][] b) {
+        int rows = a.length;
+        int cols = a[0].length;
+        int[][] result = new int[rows][cols];
 
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = a[i][j] + b[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static int[][] subtractMatrices(int[][] a, int[][] b) {
+        int rows = a.length;
+        int cols = a[0].length;
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = a[i][j] - b[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static int[][] multiplyMatrices(int[][] a, int[][] b) {
+        int rowsA = a.length;
+        int colsA = a[0].length;
+        int colsB = b[0].length;
+        int[][] result = new int[rowsA][colsB];
+
+        for (int i = 0; i < rowsA; i++) {
+            for (int j = 0; j < colsB; j++) {
+                for (int k = 0; k < colsA; k++) {
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return result;
+    }
+
+    public static int[][] transposeMatrix(int[][] a) {
+        int rows = a.length;
+        int cols = a[0].length;
+        int[][] result = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[j][i] = a[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static int[][] scalarMultiplyMatrix(int[][] a, int scalar) {
+        int rows = a.length;
+        int cols = a[0].length;
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = a[i][j] * scalar;
+            }
+        }
+        return result;
+    }
+
+    private static int[][] readMatrix(Scanner scanner, String matrixName) {
+        System.out.print("Enter number of rows for Matrix " + matrixName + ": ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter number of columns for Matrix " + matrixName + ": ");
+        int cols = scanner.nextInt();
+
+        int[][] matrix = new int[rows][cols];
+        System.out.println("Enter elements for Matrix " + matrixName + ":");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        return matrix;
+
+    }
+
+    private static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
 }
