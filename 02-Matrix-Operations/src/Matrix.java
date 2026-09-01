@@ -203,5 +203,6 @@ public class Matrix {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
