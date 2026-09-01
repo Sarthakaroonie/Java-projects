@@ -10,11 +10,11 @@ public class Matrix {
             int choice = scanner.nextInt();
 
             switch(choice) {
-                case 1 -> handleAdd();
-                case 2 -> handleSubtract();
-                case 3 -> handleMultiply();
-                case 4 -> handleTranspose();
-                case 5 -> handleScalarMultiplication();
+                case 1 -> handleAdd(scanner);
+                case 2 -> handleSubtract(scanner);
+                case 3 -> handleMultiply(scanner);
+                case 4 -> handleTranspose(scanner);
+                case 5 -> handleScalarMultiplication(scanner);
                 case 6 -> {
                     running = false;
                     System.out.println("Thanks for playing!");
@@ -36,7 +36,7 @@ public class Matrix {
 
     //Operations:
 
-    private static void handleAdd() {
+    private static void handleAdd(Scanner scanner) {
         // Implementation for adding matrices
         System.out.println("Add Matrices operation selected.");
         int [][] a = readMatrix(scanner, "A");
@@ -52,7 +52,7 @@ public class Matrix {
         printMatrix(result);
     }
 
-    private static void handleSubtract() {
+    private static void handleSubtract(Scanner scanner) {
         // Implementation for subtracting matrices
         System.out.println("Subtract Matrices operation selected.");
         int [][] a = readMatrix(scanner, "A");
@@ -68,7 +68,7 @@ public class Matrix {
         printMatrix(result);
     }
 
-    private static void handleMultiply() {
+    private static void handleMultiply(Scanner scanner) {
         // Implementation for multiplying matrices
         System.out.println("Multiply Matrices operation selected.");
         int [][] a = readMatrix(scanner, "A");
@@ -84,7 +84,7 @@ public class Matrix {
         printMatrix(result);
     }
 
-    private static void handleTranspose() {
+    private static void handleTranspose(Scanner scanner) {
         // Implementation for transposing a matrix
         System.out.println("Transpose Matrix operation selected.");
         int [][] a = readMatrix(scanner, "A");
@@ -95,7 +95,7 @@ public class Matrix {
         printMatrix(result);
     }
 
-    private static void handleScalarMultiplication() {
+    private static void handleScalarMultiplication(Scanner scanner) {
         // Implementation for scalar multiplication
         System.out.println("Scalar Multiplication operation selected.");
         int [][] a = readMatrix(scanner, "A");
